@@ -3,8 +3,6 @@ using System.Diagnostics;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Globalization;
-using Windows.Networking.PushNotifications;
-using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -15,8 +13,8 @@ namespace MFAzureNotificationWin8
     sealed partial class App : Application
     {
         public static readonly MobileServiceClient MobileService = new MobileServiceClient(
-            "https://mfazurenotificationmobile.azure-mobile.net/",
-            "PiCnWDCqIcwllKVeHMZZjKYZgrCzVx25"
+            "<Your Mobile Services URL>",
+            "<Your Mobile Services Application Key>"
             );
 
         public App()

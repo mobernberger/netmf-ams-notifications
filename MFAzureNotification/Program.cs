@@ -8,8 +8,8 @@ namespace MFAzureNotification
     {
         public static void Main()
         {
-            var mobileService = new MobileServiceClient(new Uri("https://mfazurenotificationmobile.azure-mobile.net/"),
-                "PiCnWDCqIcwllKVeHMZZjKYZgrCzVx25");
+            var mobileService = new MobileServiceClient(new Uri("<Your Mobile Services URL>"),
+                "<Your Mobile Services Application Key>");
 
             var sensorData = new SensorData
             {
