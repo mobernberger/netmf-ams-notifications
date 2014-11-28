@@ -15,6 +15,8 @@ This is a Code Example for Azure Mobile Service (.NET Backend), a .NET Micro Fra
 ### Getting Started
 ---
 
+##### The Microsoft Azure Mobile Service:
+
 * Start a new Visual Studio Project in Visual Studio 2013 Update 4 and go to Cloud -> Azure Mobile Services. If you have already have an Microft Azure Account you also can create the Mobile Service direct from Visual Studio.
 * After the creation of the Mobile Service I have deleted all the Variables, Classes which refer to the Default TodoItem which is created by default in the Mobile Service.
 * For my purposes I have first added a new class called "SensorData" under the DataObjects folder which defines my Class for my sensors. The class have to inheret from "EntityData" which you get from the Mobile Services DLLs
@@ -47,6 +49,28 @@ This inserts the item in the Database. After that we create a new Windows Push M
 * As we have everything configured correctly we publish the Mobile Service to the cloud, which could take a while on the first publish.
 
 -
+
+##### The Windows 8.1 Store Project:
+
+* Lets add another project to our solution which is a Blank Windows Store Application
+* Install the "WindowsAzure.MobileServices" NuGet Package to get the required libraries
+* 
+
+
+-
+
+##### The .NET Micro Framework Project:
+
 * Now we are adding a new Project of Type "Micro Framework Console Application".
 * Add a Reference to my Azure Mobile Services library from here: https://github.com/mobernberger/netmf-azure-mobile-services
-* Create a new class with the same items as in the Mobile Services Project. You have to implement the IMobileServiceEntityData Interface from my library.
+* Create a new class with the same Variables as in the Mobile Services Project. You have to implement the IMobileServiceEntityData Interface from my library.
+* And now lets create an Instance of the MobileServiceClient and insert an entry in our Table:
+```C#
+var mobileService = new MobileServiceClient(new Uri("<Your Mobile Services URL>"), "<Your Application Key>");
+var sensorData = new SensorData
+{
+    Temperature = 24.23
+};
+string result = mobileService.Insert("SensorData", sensorData);
+Debug.Print(result);
+```
