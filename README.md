@@ -54,8 +54,13 @@ This inserts the item in the Database. After that we create a new Windows Push M
 
 * Lets add another project to our solution which is a Blank Windows Store Application
 * Install the "WindowsAzure.MobileServices" NuGet Package to get the required libraries
-* 
-
+* Now we are creating an MobileServiceClient in the App.xaml.cs
+```C#
+public static readonly MobileServiceClient MobileService = new MobileServiceClient(
+            "<Your Mobile Services URL>",
+            "<Your Application Key>");
+```
+* In the MainPage there is a function called "InitNotificationsAsync()" which is called on the Button Press Event. This function requests a Push Notification Channel and then registers for notifications with our MobileServiceClient and the Push Notification Channel. You only have to do this once as long as the application is installed on your system.
 
 -
 
@@ -74,3 +79,20 @@ var sensorData = new SensorData
 string result = mobileService.Insert("SensorData", sensorData);
 Debug.Print(result);
 ```
+
+-
+
+#### Test
+
+* Publish your changed Azure Mobile Service with the Class and the corresponding controller and the Notification Configuration on Insert.
+* To test the notifications you have to deploy the Windows 8 Application to your system. Start the application press the Registration Button and wait if the registration is successfull.
+* After that start the .NET Micro Framework Console Application and wait for the Insert to Complete and you should get a notification in the moment of the Insert.
+
+
+--
+#### Resources:
+
+Here are some resources for further research for you:
+* Get started with Azure Mobile Services with .NET Backend: http://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
+* Get started with Push Notifications: 
+http://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/
