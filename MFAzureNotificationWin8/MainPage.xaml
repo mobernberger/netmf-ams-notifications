@@ -1,0 +1,25 @@
+﻿<Page
+    x:Class="MFAzureNotificationWin8.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MFAzureNotificationWin8"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock Text="Test App .NET Micro Framework - Azure WNS" FontSize="50" Margin="30" />
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Content="Register for WNS" FontSize="25" Margin="30" VerticalAlignment="Top" Tapped="UIElement_OnTapped"></Button>
+            <TextBlock x:Name="TextBlock" Grid.Column="1" FontSize="25" Margin="30" VerticalAlignment="Top"></TextBlock>
+        </Grid>
+    </Grid>
+</Page>
